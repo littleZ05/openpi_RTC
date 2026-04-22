@@ -101,7 +101,7 @@ class Policy(BasePolicy):
         observation = _model.Observation.from_dict(inputs)
         start_time = time.monotonic()
 
-        if not self._is_pytorch_model:
+        if not self._is_pytorch_model:#jax RTC接口
             actions, self.first_call, self.last_actions, self.debug_counter = self._rtc_original(
                 sample_rng_or_pytorch_device,
                 observation,
